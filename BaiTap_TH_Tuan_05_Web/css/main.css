@@ -1,41 +1,109 @@
-.menu-wrapper,
-.menu a {
-    width: 100%;
-}
-
-.menu a {
-    display: block;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.menu>li {
-    float: left;
-}
-
-.wrap {
-    float: left;
-    padding: 10px;
-}
-
-.menu,
-.menu ul {
-    display: inline-block;
-    padding: 0;
+*  {
     margin: 0;
-    list-style-type: none;
-    background: rgb(252, 252, 252);
+    padding: 0;
+    
+  }
+  
+  .menu {
+    display:flex;
+    align-items:center;
+    padding: 20px;
+    background-color: #f2f2f2;
+  }
+  
+  .menu img {
+    height: 50px;
+  }
+  
+  .menu-home {
+    display: contents;
+    align-items:center;
+    margin-right: 20px;
+  }
+  
+  .menu-home li {
+    list-style: none;
+    margin-right: 0px;
+  }
+  
+  .menu-home li a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 30px;
+  }
+  
+  .menu-home li a:hover {
+    color: aqua;
+
 }
 
-.menu-gold,
-.menu-gold a {
-    color: rgb(0, 0, 0);
-}
+  .wrap {
+    margin-left: auto;
+  }
+  
+  .searchTerm {
+    padding: 10px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    outline: none;
+    background-color: #fff;
+    transition: all 0.5s;
+  }
+  
 
-.menu-gold a:hover {
-    background-color: #ffffff;
-    color: rgb(0, 247, 255);
+
+  .menu {
+    position: relative; /* bắt buộc phải có để đối tượng ::after thêm vào có thể hiển thị đúng vị trí */
+  }
+  
+  .menu::after {
+    content: ''; /* thêm một đối tượng giả để thực hiện hiệu ứng đường kẻ dưới */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%; /* chiều rộng của đường kẻ */
+    height: 2px; /* độ dày của đường kẻ */
+    background-color: #d7d7d7; /* màu sắc của đường kẻ */
+  }
+  
+  .menu li a {
+    position: relative; /* bắt buộc phải có để đối tượng ::before thêm vào có thể hiển thị đúng vị trí */
+  }
+  
+  .menu li a::before {
+    content: ''; /* thêm một đối tượng giả để thực hiện hiệu ứng highlight */
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 6px;
+    background-color: aqua;
+    opacity: 0;
+    transition: all 0.3s ease-out; /* tạo hiệu ứng khi rê chuột vào */
+  }
+  
+  .menu li a:hover::before {
+    opacity: 1; /* highlight chữ */
+    width: 100%; /* tăng độ rộng để highlight đầy đủ chữ */
+  }
+  
+  .content {
+    margin: 0 120px; /* cách lề trái và phải 30px */
+  }
+  .one{
+    display: flex;
+  }
+  .two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    
+  }
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
+  
